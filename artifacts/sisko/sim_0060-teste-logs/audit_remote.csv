@@ -1,0 +1,2 @@
+datetime_iso,sim_id,run_id,target,jobid,status,entry,args,git_commit,git_dirty,host,partition,gpus,cpus,mem,time_limit_sec,duration_sec,pkg_path,pkg_size_bytes
+2025-09-06T18:10:38-0300,sim_0060-teste-logs,submit0001,sisko,3055,failed,Exercicio_Teste/test_run.py,"",no-git,no-git,sisko,all,1,2,,300,5,artifacts/submit0001.tgz,641

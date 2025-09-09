@@ -1,0 +1,18 @@
+++ date -Iseconds
++ echo '===== [BEGIN] 2025-09-06T18:10:33-0300 ====='
++ echo '[DEBUG] args: Exercicio_Teste/test_run.py'
+++ whoami
++ echo '[DEBUG] whoami=nara'
+++ pwd
++ echo '[DEBUG] PWD=/home/nara/MAC5921-Deep-Learning/simulations/sim_0060-teste-logs/code'
++ echo '[DEBUG] PATH=/opt/ohpc/pub/mpi/openmpi3-gnu8/3.1.4/bin:/opt/ohpc/pub/compiler/gcc/8.3.0/bin:/opt/ohpc/pub/utils/prun/1.3:/opt/ohpc/pub/utils/autotools/bin:/opt/ohpc/pub/bin:/usr/local/bin:/usr/bin'
++ true
+++ command -v python3
+++ true
++ PY_BIN=
++ [[ -z '' ]]
+++ command -v python
++ PY_BIN=/usr/bin/python
++ [[ -z '' ]]
++ echo '[ERRO] Sem python3/python no nó.'
++ exit 10

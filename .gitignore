@@ -54,3 +54,4 @@ pip-log.txt
 *.bak
 *.old
 *.orig
+.environment

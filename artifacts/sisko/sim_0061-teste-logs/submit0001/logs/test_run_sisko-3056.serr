@@ -1,0 +1,77 @@
+++ date -Iseconds
++ echo '===== [BEGIN] 2025-09-06T18:17:33-0300 ====='
++ echo '[DEBUG] args: Exercicio_Teste/test_run.py'
+++ whoami
++ echo '[DEBUG] whoami=nara'
+++ pwd
++ echo '[DEBUG] PWD=/home/nara/MAC5921-Deep-Learning/simulations/sim_0061-teste-logs/code'
++ echo '[DEBUG] PATH=/opt/ohpc/pub/mpi/openmpi3-gnu8/3.1.4/bin:/opt/ohpc/pub/compiler/gcc/8.3.0/bin:/opt/ohpc/pub/utils/prun/1.3:/opt/ohpc/pub/utils/autotools/bin:/opt/ohpc/pub/bin:/usr/local/bin:/usr/bin'
++ true
+++ command -v python3
+++ true
++ PY_BIN=
++ [[ -z '' ]]
+++ command -v python
++ PY_BIN=/usr/bin/python
++ [[ -z /usr/bin/python ]]
++ echo '[ENV] PY_BIN=/usr/bin/python'
++ /usr/bin/python -V
++ VENV_ID=3056
++ VENV_DIR=/home/nara/MAC5921-Deep-Learning/simulations/sim_0061-teste-logs/code/.venv_job_3056
++ echo '[ENV] Criando venv: /home/nara/MAC5921-Deep-Learning/simulations/sim_0061-teste-logs/code/.venv_job_3056'
++ /usr/bin/python -m venv /home/nara/MAC5921-Deep-Learning/simulations/sim_0061-teste-logs/code/.venv_job_3056
++ source /home/nara/MAC5921-Deep-Learning/simulations/sim_0061-teste-logs/code/.venv_job_3056/bin/activate
+++ deactivate nondestructive
+++ '[' -n '' ']'
+++ '[' -n '' ']'
+++ '[' -n /usr/bin/bash -o -n '' ']'
+++ hash -r
+++ '[' -n '' ']'
+++ unset VIRTUAL_ENV
+++ '[' '!' nondestructive = nondestructive ']'
+++ VIRTUAL_ENV=/home/nara/MAC5921-Deep-Learning/simulations/sim_0061-teste-logs/code/.venv_job_3056
+++ export VIRTUAL_ENV
+++ _OLD_VIRTUAL_PATH=/opt/ohpc/pub/mpi/openmpi3-gnu8/3.1.4/bin:/opt/ohpc/pub/compiler/gcc/8.3.0/bin:/opt/ohpc/pub/utils/prun/1.3:/opt/ohpc/pub/utils/autotools/bin:/opt/ohpc/pub/bin:/usr/local/bin:/usr/bin
+++ PATH=/home/nara/MAC5921-Deep-Learning/simulations/sim_0061-teste-logs/code/.venv_job_3056/bin:/opt/ohpc/pub/mpi/openmpi3-gnu8/3.1.4/bin:/opt/ohpc/pub/compiler/gcc/8.3.0/bin:/opt/ohpc/pub/utils/prun/1.3:/opt/ohpc/pub/utils/autotools/bin:/opt/ohpc/pub/bin:/usr/local/bin:/usr/bin
+++ export PATH
+++ '[' -n '' ']'
+++ '[' -z '' ']'
+++ _OLD_VIRTUAL_PS1=
+++ '[' 'x(.venv_job_3056) ' '!=' x ']'
+++ PS1='(.venv_job_3056) '
+++ export PS1
+++ '[' -n /usr/bin/bash -o -n '' ']'
+++ hash -r
++ python -V
++ python -m ensurepip --upgrade
++ python -m pip --version
++ python -m pip install -q --upgrade 'pip<24' 'setuptools<70' wheel
++ ENTRY_PATH=Exercicio_Teste/test_run.py
+++ dirname -- Exercicio_Teste/test_run.py
++ ENTRY_DIR=Exercicio_Teste
++ REQ_FILE=Exercicio_Teste/requirements.txt
++ REQ_FALLBACK=/home/nara/MAC5921-Deep-Learning/simulations/sim_0061-teste-logs/code/requirements.txt
++ echo '[ENV] entry_path=Exercicio_Teste/test_run.py'
++ echo '[ENV] entry_dir=Exercicio_Teste'
++ echo '[ENV] req_file=Exercicio_Teste/requirements.txt'
++ echo '[ENV] req_fallback=/home/nara/MAC5921-Deep-Learning/simulations/sim_0061-teste-logs/code/requirements.txt'
++ [[ -s Exercicio_Teste/requirements.txt ]]
++ echo '[ENV] pip install -r Exercicio_Teste/requirements.txt'
++ python -m pip install --no-input -q -r Exercicio_Teste/requirements.txt
+
+[notice] A new release of pip is available: 23.3.2 -> 24.0
+[notice] To update, run: pip install --upgrade pip
++ export MPLBACKEND=Agg
++ MPLBACKEND=Agg
++ APP_LOG=/home/nara/MAC5921-Deep-Learning/simulations/sim_0061-teste-logs/code/logs/app_test_run_sisko-3056.log
++ echo '[RUN] python Exercicio_Teste/test_run.py'
++ tee -a /home/nara/MAC5921-Deep-Learning/simulations/sim_0061-teste-logs/code/logs/app_test_run_sisko-3056.log
++ stdbuf -oL -eL python -u Exercicio_Teste/test_run.py
++ tee -a /home/nara/MAC5921-Deep-Learning/simulations/sim_0061-teste-logs/code/logs/app_test_run_sisko-3056.log
++ echo '[CLEANUP] Removendo venv'
++ set +u
++ deactivate
++ set -u
++ rm -rf /home/nara/MAC5921-Deep-Learning/simulations/sim_0061-teste-logs/code/.venv_job_3056
+++ date -Iseconds
++ echo '===== [END] 2025-09-06T18:17:56-0300 ====='
