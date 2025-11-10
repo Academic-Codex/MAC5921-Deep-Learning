@@ -1,0 +1,219 @@
+\documentclass[a4paper]{article}
+\usepackage{student}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage[version=4]{mhchem}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, decorations.pathreplacing}
+\usepackage{enumitem}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{float}
+\pagestyle{plain}
+
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+% Definindo o estilo de destaque com linhas pontilhadas
+\tikzstyle{highlight} = [draw, dashed, thick, rectangle, rounded corners, inner sep=0.2cm, orange]
+
+
+\tikzstyle{startstop} = [
+    rectangle, rounded corners, minimum width=0.5cm,
+    text centered, draw=black, fill=blue!10, font=\small
+]
+\tikzstyle{startstop_S} = [
+    rectangle, rounded corners, minimum width=0.5cm, minimum height=0.8cm,
+    text centered, draw=black, fill=green!30, font=\small
+]
+\tikzstyle{decision} = [
+    diamond, aspect=2, draw=black, fill=orange!15, align=center,
+    text centered, inner sep=0pt, font=\small
+]
+\tikzstyle{decision_S} = [
+    diamond, aspect=2, draw=black, fill=orange!30, align=center,
+    text centered, inner sep=0pt, font=\small
+]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+
+
+
+% Metadata
+\date{\today}
+\setmodule{MAC5921/IME: Deep Learning. \\ Prof.: Nina S. T. Hirata} 
+\setterm{2o. semestre, 2025}
+
+%-------------------------------%
+% Other details
+% TODO: Fill these
+%-------------------------------%
+\title{Exercício 01 - 22/08}
+\setmembername{Nara Avila Moraes}  % Fill group member names
+\setmemberuid{5716734}  % Fill group member uids (same order)
+
+%-------------------------------%
+% Add / Delete commands and packages
+% TODO: Add / Delete here as you need
+%-------------------------------%
+\usepackage{amsmath,amssymb,bm}
+
+\newcommand{\KL}{\mathrm{KL}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\T}{\top}
+
+\newcommand{\expdist}[2]{%
+        \normalfont{\textsc{Exp}}(#1, #2)%
+    }
+\newcommand{\expparam}{\bm \lambda}
+\newcommand{\Expparam}{\bm \Lambda}
+\newcommand{\natparam}{\bm \eta}
+\newcommand{\Natparam}{\bm H}
+\newcommand{\sufstat}{\bm u}
+
+% Main document
+\begin{document}
+    % Add header
+    \header{}
+
+\textbf{Implementação de modelos de regressão utilizando Scikit-Learn e PyTorch}
+\begin{center}
+\begin{itemize}
+  \item[(1.1)] Regressão linear utilizando scikit-learn e pytorch.
+  \item[(1.2)] Regressão logística utilizando scikit-learn e pytorch
+\end{itemize}
+\end{center}
+
+    \begin{answer}[Ítem 1.1]
+\section*{Relatório Comparativo: Métodos de Regressão Linear}
+
+Neste estudo foram implementados e comparados quatro métodos de regressão linear aplicados ao mesmo conjunto de dados: (i) regressão linear analítica (equação normal), (ii) regressão linear com a biblioteca \texttt{scikit-learn}, (iii) regressão linear iterativa com Batch Gradient Descent (BGD) e (iv) regressão linear iterativa com Stochastic Gradient Descent (SGD). 
+
+\subsection*{Resultados de Ajuste}
+Os métodos analítico e via \texttt{scikit-learn} apresentaram resultados praticamente idênticos em termos de coeficientes $(w_0, w_1)$ e métricas de qualidade, como $R^2$, MSE, SSE e SSR. Isso já era esperado, visto que ambos utilizam a solução fechada da equação normal. 
+
+Nos métodos iterativos, tanto o BGD quanto o SGD atingiram valores de $R^2$ semelhantes, confirmando a convergência para soluções próximas à analítica. Entretanto, a trajetória até a convergência apresentou características distintas: o BGD exibe uma curva de loss suave e monotônica, enquanto o SGD apresenta oscilações acentuadas devido à atualização baseada em amostras individuais, refletindo seu caráter estocástico.
+
+\subsection*{Custo Computacional}
+O método analítico requer a inversão da matriz $X^T X$, o que pode ser custoso para grandes dimensões. No entanto, no dataset atual, o tempo de execução foi desprezível. O \texttt{scikit-learn}, que encapsula essa solução, teve comportamento semelhante. Já os métodos iterativos apresentaram maior tempo de execução, sendo o BGD mais lento que o SGD, embora este último exiba maior variabilidade no processo de convergência.
+
+\begin{table}[H]
+\centering
+\caption{Métricas de desempenho da Regressão Linear para diferentes métodos}
+\begin{tabular}{lcccccc}
+\toprule
+Método & Par & $R^2$ & MSE & SSE & SSR & SST \\
+\midrule
+Scikit-learn & Shoe $\to$ Height & 0.710977 & 60.299 & 15496.8 & 38121.2 & 53618.1 \\
+PyTorch      & Shoe $\to$ Height & 0.710977 & 60.299 & 15496.8 & 38121.2 & 53618.1 \\
+BGD          & Shoe $\to$ Height & 0.710937 & 60.308 & 15497.2 & 38120.8 & 53618.0 \\
+SGD          & Shoe $\to$ Height & 0.710933 & 60.309 & 15497.2 & 38120.8 & 53618.0 \\
+\midrule
+Scikit-learn & Sex $\to$ Shoe     & 0.466478 & 0.116 & 29.59   & 25.88   & 55.47 \\
+PyTorch      & Sex $\to$ Shoe     & 0.466478 & 0.116 & 29.59   & 25.88   & 55.47 \\
+BGD          & Sex $\to$ Shoe     & 0.466453 & 0.117 & 29.60   & 25.87   & 55.47 \\
+SGD          & Sex $\to$ Shoe     & 0.466449 & 0.117 & 29.60   & 25.87   & 55.47 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{Particularidades}
+\begin{itemize}
+    \item \textbf{Analítico:} fornece a solução exata em uma única etapa, mas não escala bem para bases massivas.
+    \item \textbf{Scikit-learn:} prático e otimizado, equivalente à solução analítica, com tratamento robusto de dados.
+    \item \textbf{BGD:} garante convergência suave, porém demanda mais tempo de processamento em datasets maiores.
+    \item \textbf{SGD:} converge rapidamente em termos de épocas, com custo computacional reduzido, mas apresenta flutuações que exigem maior cuidado na escolha da taxa de aprendizado.
+\end{itemize}
+
+\begin{table}[H]
+\centering
+\caption{Custo computacional da Regressão Linear}
+\begin{tabular}{lccc}
+\toprule
+Método & Iterações & Gradiente final & Tempo (s) \\
+\midrule
+Scikit-learn & -- & -- & 0.0009 \\
+PyTorch      & -- & -- & 0.0006 \\
+BGD          & 200000 & 0.00037 & 48.13 \\
+SGD          & $\sim$400 & 0.0223  & 0.6277 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\subsection*{Conclusão}
+A análise evidenciou que, para problemas de pequena dimensão, a solução analítica e o uso de bibliotecas otimizadas como o \texttt{scikit-learn} são os métodos mais diretos e eficientes. Já em contextos de grande escala, os métodos iterativos tornam-se mais viáveis, sendo o SGD especialmente útil pela eficiência computacional, apesar da necessidade de ajustes finos em seus hiperparâmetros. 
+
+    \end{answer}
+
+    \begin{answer}[Ítem 1.2]
+        \section*{Relatório Comparativo: Regressão Logística Binária}
+
+\subsection*{Objetivo}
+O objetivo deste experimento foi comparar quatro implementações distintas de regressão logística binária para o alvo \texttt{sex} (0 = Female, 1 = Male), utilizando como preditores as variáveis \texttt{height}, \texttt{weight}, \texttt{age} e \texttt{shoe\_number}. As implementações foram: 
+\begin{enumerate}
+    \item \textbf{scikit--learn}, como baseline de referência;
+    \item \textbf{PyTorch}, modelo direto com otimização via \texttt{Adam};
+    \item \textbf{Batch Gradient Descent (BGD)}, atualização por época com todo o conjunto;
+    \item \textbf{Stochastic Gradient Descent (SGD)}, atualização em mini-lotes.
+\end{enumerate}
+Em todas as abordagens, as features foram padronizadas (média 0, desvio 1) para garantir estabilidade numérica.
+
+\subsection*{Métricas principais (teste)}
+\begin{table}[H]
+\centering
+\caption{Regressão Logística (alvo: \textit{Sex}). Métricas no conjunto de teste.}
+\begin{tabular}{lccccc}
+\toprule
+Método & Acc & Prec & Rec & F1 & ROC--AUC \\
+\midrule
+Scikit--learn (Pipeline) & 0.8615 & 0.9500 & 0.8444 & 0.8941 & 0.9322 \\
+PyTorch (BGD)            & 0.8615 & 0.9500 & 0.8444 & 0.8941 & 0.9311 \\
+PyTorch (SGD)            & 0.8615 & 0.9500 & 0.8444 & 0.8941 & 0.9290 \\
+\bottomrule
+\end{tabular}
+\end{table}
+\subsection*{Observações}
+\begin{enumerate}
+    \item \textbf{Padronização}: foi determinante para estabilizar o treinamento. Sem ela, observou-se saturação dos gradientes e convergência lenta/instável, sobretudo em BGD e SGD.
+    \item \textbf{Curvas de aprendizado}: 
+    \begin{itemize}
+        \item O BGD apresentou uma curva de perda suave, convergindo de forma estável;
+        \item O SGD mostrou comportamento serrilhado, com maior ruído. Esse ruído, no entanto, pode ser benéfico, ajudando o modelo a escapar de mínimos locais rasos.
+    \end{itemize}
+    \item \textbf{Baseline}: o scikit--learn ofereceu um baseline sólido, rápido e de fácil interpretação, servindo como referência para os demais métodos.
+    \item \textbf{Flexibilidade}: o PyTorch reproduziu os resultados do baseline, mas com maior flexibilidade para ajustes de arquitetura, regularização e integração futura em modelos neurais.
+\end{enumerate}
+
+\begin{table}[H]
+\centering
+\caption{Matriz de confusão no teste (métodos scikit, BGD e SGD).}
+\begin{tabular}{lcccc}
+\toprule
+ & TN & FP & FN & TP \\
+\midrule
+Todos (scikit, BGD, SGD) & 18 & 2 & 7 & 38 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection*{Custo Computacional}
+\begin{itemize}
+    \item \textbf{scikit--learn} e \textbf{PyTorch} direto apresentaram tempos de execução reduzidos (milissegundos), ideais para prototipagem.
+    \item \textbf{BGD} foi mais lento por época, pois cada atualização utiliza o dataset completo.
+    \item \textbf{SGD} exigiu maior número de épocas para alcançar desempenho similar, mas cada época foi mais barata em custo computacional.
+\end{itemize}
+
+\subsection*{Conclusões}
+As quatro abordagens produziram resultados consistentes e coerentes. As principais conclusões são:
+\begin{enumerate}
+    \item Para tarefas práticas de classificação binária simples, recomenda-se iniciar com \textbf{scikit--learn}, pela rapidez e confiabilidade.
+    \item Quando há necessidade de \textbf{controle detalhado} sobre o processo de treinamento ou integração com redes neurais, o uso de \textbf{PyTorch} é mais indicado.
+    \item O \textbf{BGD} é preferível quando se busca estabilidade e curvas de aprendizado mais suaves, útil para análise didática ou diagnóstica.
+    \item O \textbf{SGD} é recomendado em cenários de grandes volumes de dados, onde eficiência e regularização implícita via ruído são desejáveis.
+\end{enumerate}
+
+Este experimento reforça um princípio fundamental do aprendizado de máquina: a escolha do método não deve ser apenas pela acurácia, mas também considerando \textbf{custo computacional, estabilidade do treinamento e contexto de aplicação}. 
+Cada abordagem traz pontos fortes que podem ser explorados conforme o objetivo final do projeto.
+
+    \end{answer}
+
+\end{document}

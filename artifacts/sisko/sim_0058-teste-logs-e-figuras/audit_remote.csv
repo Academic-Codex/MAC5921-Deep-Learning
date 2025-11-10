@@ -1,0 +1,4 @@
+datetime_iso,sim_id,run_id,target,jobid,status,entry,args,git_commit,git_dirty,host,partition,gpus,cpus,mem,time_limit_sec,duration_sec,pkg_path,pkg_size_bytes
+2025-09-06T17:16:03-0300,sim_0058-teste-logs-e-figuras,submit0001,sisko,3051,ok,Exercicio_Teste/test_run.py,"",no-git,dirty,sisko,all,1,2,,300,25,artifacts/submit0001.tgz,16806
+2025-09-06T17:20:14-0300,sim_0058-teste-logs-e-figuras,submit0002,sisko,3052,ok,Exercicio_Teste/test_run.py,"",no-git,dirty,sisko,all,1,2,,300,26,artifacts/submit0002.tgz,16805
+2025-09-06T17:33:29-0300,sim_0058-teste-logs-e-figuras,submit0003,sisko,3053,ok,Exercicio_Teste/test_run.py,"",no-git,no-git,sisko,all,1,2,,300,25,artifacts/submit0003.tgz,16806

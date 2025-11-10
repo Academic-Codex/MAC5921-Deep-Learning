@@ -1,0 +1,31 @@
+===== [BEGIN] 2025-09-06T18:17:33-0300 =====
+[DEBUG] args: Exercicio_Teste/test_run.py
+[DEBUG] whoami=nara
+[DEBUG] PWD=/home/nara/MAC5921-Deep-Learning/simulations/sim_0061-teste-logs/code
+[DEBUG] PATH=/opt/ohpc/pub/mpi/openmpi3-gnu8/3.1.4/bin:/opt/ohpc/pub/compiler/gcc/8.3.0/bin:/opt/ohpc/pub/utils/prun/1.3:/opt/ohpc/pub/utils/autotools/bin:/opt/ohpc/pub/bin:/usr/local/bin:/usr/bin
+[ENV] PY_BIN=/usr/bin/python
+Python 3.7.4
+[ENV] Criando venv: /home/nara/MAC5921-Deep-Learning/simulations/sim_0061-teste-logs/code/.venv_job_3056
+Python 3.7.4
+Looking in links: /tmp/tmp0yexrjng
+Requirement already up-to-date: setuptools in ./.venv_job_3056/lib/python3.7/site-packages (40.8.0)
+Requirement already up-to-date: pip in ./.venv_job_3056/lib/python3.7/site-packages (19.0.3)
+pip 19.0.3 from /home/nara/MAC5921-Deep-Learning/simulations/sim_0061-teste-logs/code/.venv_job_3056/lib/python3.7/site-packages/pip (python 3.7)
+[ENV] entry_path=Exercicio_Teste/test_run.py
+[ENV] entry_dir=Exercicio_Teste
+[ENV] req_file=Exercicio_Teste/requirements.txt
+[ENV] req_fallback=/home/nara/MAC5921-Deep-Learning/simulations/sim_0061-teste-logs/code/requirements.txt
+[ENV] pip install -r Exercicio_Teste/requirements.txt
+[RUN] python Exercicio_Teste/test_run.py
+=== SLURM SMOKE ===
+host: sisko
+cwd: /home/nara/MAC5921-Deep-Learning/simulations/sim_0061-teste-logs/code
+args: []
+SLURM_JOB_ID: 3056
+tick 1
+tick 2
+tick 3
+=== OK ===
+salvou em figures/test.png
+[CLEANUP] Removendo venv
+===== [END] 2025-09-06T18:17:56-0300 =====

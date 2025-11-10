@@ -1,0 +1,70 @@
+
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage[margin=2.2cm]{geometry}
+
+\title{MAC05921 -- Tarefa 2: Comparação NN $\times$ CNN no MNIST}
+\author{Nome da(o) Aluna(o)}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{Resumo}
+Este relatório resume a implementação e as explorações pedidas: treinamento de uma rede totalmente conectada (NN) e de uma rede convolucional (CNN) no dataset MNIST, com comparação de curvas de \emph{loss}, \emph{early stopping}, desempenho em validação e teste, e observações sobre overfitting.
+
+\section*{Implementação}
+A implementação foi realizada em \texttt{PyTorch}. O código de referência é próprio, inspirado na documentação oficial. Modelos:
+(i) \textbf{MLP}: Flatten $\rightarrow$ Linear-ReLU $\rightarrow$ Linear-ReLU $\rightarrow$ Linear;
+(ii) \textbf{CNN} compacta: Conv-ReLU-Pool $\rightarrow$ Conv-ReLU-Pool $\rightarrow$ Linear-ReLU $\rightarrow$ Linear.
+O número de parâmetros foi mantido da mesma ordem de grandeza em ambos, para comparação justa.
+
+\paragraph{Dados e protocolo.}
+Usou-se MNIST com normalização padrão. Do conjunto de treino, foram selecionados $n$ exemplos por classe (valor usado: \texttt{samples\_per\_class}), divididos em treino/validação (fração $v$).
+Critério de \emph{early stopping} pela \emph{val loss} (paciência = \texttt{patience}). Métrica: acurácia.
+
+\section*{Resultados e observações}
+\begin{itemize}
+  \item \textbf{Curvas de treino/validação}: ver Figuras~\ref{fig:mlp_curves} e \ref{fig:cnn_curves}.
+  \item \textbf{Matrizes de confusão (teste)}: Figuras~\ref{fig:cm_mlp} e \ref{fig:cm_cnn}.
+  \item \textbf{Resumo numérico}: vide \texttt{resultados.csv} (acurácia de teste e melhor \emph{val loss}).
+\end{itemize}
+
+\noindent \textbf{Diferenças NN $\times$ CNN.} Em geral, a CNN converge para melhores perdas/acentua maior invariância a variações locais (traduções/ruídos), enquanto a NN tende a sobreajustar mais cedo quando o conjunto é pequeno. (Detalhar com base nos seus números.)
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.48\linewidth]{figures/mlp_curves_loss.png}
+  \includegraphics[width=.48\linewidth]{figures/mlp_curves_acc.png}
+  \caption{Curvas de loss e acurácia (MLP).}
+  \label{fig:mlp_curves}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.48\linewidth]{figures/cnn_curves_loss.png}
+  \includegraphics[width=.48\linewidth]{figures/cnn_curves_acc.png}
+  \caption{Curvas de loss e acurácia (CNN).}
+  \label{fig:cnn_curves}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.48\linewidth]{figures/cm_mlp.png}
+  \includegraphics[width=.48\linewidth]{figures/cm_cnn.png}
+  \caption{Matrizes de confusão (teste) para MLP (esq.) e CNN (dir.).}
+  \label{fig:cm_mlp}\label{fig:cm_cnn}
+\end{figure}
+
+\paragraph{Explorações adicionais (opcional).}
+Relatar resultados de dados com ruído/desbalanceamento, t-SNE e Grad-CAM (se feitos), comentando impactos na generalização e na robustez.
+
+\section*{Conclusões}
+(1) Descrever o que foi observado na comparação NN $\times$ CNN; (2) indicar limitações (tempo, GPU, tamanho do conjunto); (3) sugerir próximos passos (hiperparâmetros, arquiteturas um pouco maiores, \emph{data augmentation}).
+
+\end{document}

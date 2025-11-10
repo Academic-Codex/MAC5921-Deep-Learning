@@ -1,0 +1,9 @@
+torchvision
+numpy
+torch
+matplotlib
+pandas
+ipykernel
+dask
+distributed
+dask-jobqueue

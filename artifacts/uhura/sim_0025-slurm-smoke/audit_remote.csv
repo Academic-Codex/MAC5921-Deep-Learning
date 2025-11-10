@@ -1,0 +1,2 @@
+datetime_iso,sim_id,run_id,target,jobid,status,entry,args,git_commit,git_dirty,host,partition,gpus,cpus,mem,time_limit_sec,duration_sec,pkg_path,pkg_size_bytes
+2025-09-05T15:39:20-0300,sim_0025-slurm-smoke,submit0001,uhura,5429,ok,test_run.py,"",2d6c807,clean,uhura,all,1,2,,300,350,artifacts/submit0001.tgz,212
