@@ -1,0 +1,12 @@
+REPO_TAGLINE: Neural networks • Representation Learning • Optimization
+ASSETS_DIR: .github/readme
+CTA_TEXT: Access the full course website
+THEME: coding
+SITE_URL: https://academic-codex.github.io/MAC5921-Deep-Learning
+
+BG_1: "#020617"
+BG_2: "#020617"
+TEXT_MAIN: "#E5E7EB"
+TEXT_MUTED: "#9CA3AF"
+ACCENT: "#22D3EE"
+CARD_RADIUS: "18"
