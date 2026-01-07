@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Notebooks Tree — MAC5921-Deep-Learning — Estudos</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="./css/paleta_cores.css" />
+    <link rel="stylesheet" href="./css/common.css" />
+    <link rel="stylesheet" href="./css/nav_bar.css" />
+    <link rel="stylesheet" href="./css/pages.css" />
+    <link rel="stylesheet" href="./css/software.css" />
+</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EM7FEY66C3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EM7FEY66C3');
+</script>
+<body>
+    <header class="navbar">
+        <div class="wrap">
+            <!-- Link extra à esquerda -->
+            <a class="repo-link" href="https://academic-codex.github.io/" title="Repositório Central">⚛</a>
+            
+            <div class="brand"><a href="./index.html">Homepage</a></div>
+            <nav class="nav">
+                <a href="./research.html">References</a>
+                <a href="./software.html">Studies</a>
+            </nav>
+        </div>
+    </header>
+
+    
+    <main class="main-wide">
+        <div class="layout">
+            <aside class="sidebar">
+                <input id="q" class="search" placeholder="Filter notebooks..." />
+                <ul id="tree" class="tree"></ul>
+            </aside>
+            <section class="viewer">
+                <iframe id="viewer" src=""></iframe>
+            </section>
+        </div>
+    </main>
+
+    <!-- injeta a árvore apenas nesta página -->
+    <script>
+        window.TREE_DATA = {"type": "dir", "name": "MAC5921-Deep-Learning", "path": "", "children": [{"type": "dir", "name": "Aulas", "path": "Aulas", "children": [{"type": "dir", "name": "Aula 01", "path": "Aulas/Aula 01", "children": [{"type": "dir", "name": "Exercicio_Teste", "path": "Aulas/Aula 01/Exercicio_Teste", "children": [{"type": "file", "name": "jupyter_teste.ipynb", "path": "Aulas/Aula 01/Exercicio_Teste/jupyter_teste.ipynb", "nb_html": "Aulas/Aula 01/Exercicio_Teste/jupyter_teste.html"}]}, {"type": "file", "name": "classificacao_imagem_ML.ipynb", "path": "Aulas/Aula 01/classificacao_imagem_ML.ipynb", "nb_html": "Aulas/Aula 01/classificacao_imagem_ML.html"}, {"type": "file", "name": "pytorch.ipynb", "path": "Aulas/Aula 01/pytorch.ipynb", "nb_html": "Aulas/Aula 01/pytorch.html"}, {"type": "file", "name": "treino_rede_neural_simples.ipynb", "path": "Aulas/Aula 01/treino_rede_neural_simples.ipynb", "nb_html": "Aulas/Aula 01/treino_rede_neural_simples.html"}]}]}, {"type": "dir", "name": "Exercicio01", "path": "Exercicio01", "children": [{"type": "dir", "name": "codigo", "path": "Exercicio01/codigo", "children": [{"type": "file", "name": "regressao_linear_analitica-scikit-learn.ipynb", "path": "Exercicio01/codigo/regressao_linear_analitica-scikit-learn.ipynb", "nb_html": "Exercicio01/codigo/regressao_linear_analitica-scikit-learn.html"}, {"type": "file", "name": "regressao_linear_analitica.ipynb", "path": "Exercicio01/codigo/regressao_linear_analitica.ipynb", "nb_html": "Exercicio01/codigo/regressao_linear_analitica.html"}, {"type": "file", "name": "regressao_linear_interativa_BGD.ipynb", "path": "Exercicio01/codigo/regressao_linear_interativa_BGD.ipynb", "nb_html": "Exercicio01/codigo/regressao_linear_interativa_BGD.html"}, {"type": "file", "name": "regressao_linear_interativa_SGD.ipynb", "path": "Exercicio01/codigo/regressao_linear_interativa_SGD.ipynb", "nb_html": "Exercicio01/codigo/regressao_linear_interativa_SGD.html"}, {"type": "file", "name": "regressao_linear_resultados.ipynb", "path": "Exercicio01/codigo/regressao_linear_resultados.ipynb", "nb_html": "Exercicio01/codigo/regressao_linear_resultados.html"}, {"type": "file", "name": "regressao_logistica-scikit-learn.ipynb", "path": "Exercicio01/codigo/regressao_logistica-scikit-learn.ipynb", "nb_html": "Exercicio01/codigo/regressao_logistica-scikit-learn.html"}, {"type": "file", "name": "regressao_logistica_BGD.ipynb", "path": "Exercicio01/codigo/regressao_logistica_BGD.ipynb", "nb_html": "Exercicio01/codigo/regressao_logistica_BGD.html"}, {"type": "file", "name": "regressao_logistica_SGD.ipynb", "path": "Exercicio01/codigo/regressao_logistica_SGD.ipynb", "nb_html": "Exercicio01/codigo/regressao_logistica_SGD.html"}, {"type": "file", "name": "regressao_logistica_pytorch.ipynb", "path": "Exercicio01/codigo/regressao_logistica_pytorch.ipynb", "nb_html": "Exercicio01/codigo/regressao_logistica_pytorch.html"}, {"type": "file", "name": "regressao_logistica_resultados.ipynb", "path": "Exercicio01/codigo/regressao_logistica_resultados.ipynb", "nb_html": "Exercicio01/codigo/regressao_logistica_resultados.html"}]}]}, {"type": "dir", "name": "Exercicio02", "path": "Exercicio02", "children": [{"type": "dir", "name": "codigo", "path": "Exercicio02/codigo", "children": [{"type": "file", "name": "dask.ipynb", "path": "Exercicio02/codigo/dask.ipynb", "nb_html": "Exercicio02/codigo/dask.html"}, {"type": "file", "name": "mnist_nn_cnn_tarefa2.ipynb", "path": "Exercicio02/codigo/mnist_nn_cnn_tarefa2.ipynb", "nb_html": "Exercicio02/codigo/mnist_nn_cnn_tarefa2.html"}]}]}]};
+    </script>
+    <script src="./js/app.js"></script>
+</body>
+
+</html>
