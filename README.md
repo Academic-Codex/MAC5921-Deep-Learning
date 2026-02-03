@@ -3,8 +3,8 @@
 </p> -->
 
 <p align="center">
-  <a href="https://Academic-Codex.github.io/MAC5921-Deep-Learning">
-    <img src=".github/readme/hero.svg?v=2026-01-08T01:39:18.018229Z" width="100%" alt="Access the course website" />
+  <a href="https://academic-codex.github.io/MAC5921-Deep-Learning?utm_source=MAC5921-Deep-Learning&utm_medium=readme">
+    <img src=".github/readme/hero.svg?v=2026-02-03T01:39:04.208526Z" width="100%" alt="Access the course website" />
   </a>
 </p>
 
